@@ -62,6 +62,7 @@ body {
 /* HEDAER */
 .navbar {
   padding: 0px 24px;
+  flex-wrap: wrap;
 }
 .navbar-brand {
   margin-right: 243px;
@@ -82,6 +83,7 @@ body {
   box-shadow: inset 0px -4px 0px 0px var(--green);
 }
 .btn-linear {
+  margin-left: auto;
   padding: 8px 33px;
   border-radius: 22px;
   background: var(--linear-bg);
@@ -95,6 +97,12 @@ body {
   opacity: 0.6;
   color: var(--white);
 }
+.navbar-toggler {
+  padding: 0;
+  position: absolute;
+  top: 24px;
+  right: 24px;
+}
 
 .navbar-toggler-icon {
   width: 24px;
@@ -102,13 +110,18 @@ body {
   background-image: url(../images/toggler-open.svg);
 }
 
-@media only screen and (max-width: 991px) {
+@media only screen and (max-width: 576px) {
+  .navbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
   .navbar-brand {
     margin-right: 0;
+    flex-basis: 74px;
+    display: flex;
+    align-items: center;
   }
-  .btn-linear {
-    display: none;
-  }
+
   .navbar-collapse::before {
     display: block;
     content: '';
@@ -127,7 +140,7 @@ body {
   }
 
   .navbar-nav {
-    margin-top: 36px;
+    margin-top: 24px;
     padding: 32px;
     border-radius: 4px;
     align-items: center;
@@ -142,5 +155,25 @@ body {
     line-height: 21px;
     letter-spacing: -0.138462px;
     color: var(--dark);
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+  .navbar-brand {
+    margin-right: 0;
+  }
+  .navbar-nav {
+    margin: auto;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .navbar-brand {
+    margin-right: 0;
+  }
+  .btn-linear {
+    display: none;
+  }
+  .navbar-nav {
+    margin-left: auto;
   }
 }
