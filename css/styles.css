@@ -51,6 +51,7 @@ body {
   padding: 0;
   font-family: 'Public Sans', 'Arial', sans-serif;
   font-weight: 400;
+  overflow-x: hidden;
 }
 
 .container {
@@ -62,6 +63,13 @@ body {
 }
 
 /* HEDAER */
+.site-header {
+  position: fixed;
+  top: 0;
+  background-color: var(--white);
+  width: 100%;
+  z-index: 1999;
+}
 header .navbar {
   padding: 0px 24px;
   flex-wrap: wrap;
@@ -125,18 +133,30 @@ header .nav-link:hover {
 .site-hero__container::after {
   display: block;
   content: '';
-  background: url(../images/hero-phones-desktop.png),
-    url(../images/hero-bg-desktop.png);
+  background: url(../images/hero-phones-desktop.png);
   background-repeat: no-repeat;
   background-position: center right;
-  width: 820px;
+  width: 647px;
+  height: 908px;
+  position: absolute;
+  top: 0;
+  right: -84px;
+  z-index: 991;
+}
+.site-hero__container::before {
+  display: block;
+  content: '';
+  background: url(../images/hero-bg-desktop-upper.png);
+  background-repeat: no-repeat;
+  background-position: center right;
+  width: 822px;
   height: 855px;
   position: absolute;
   top: 0;
   right: -84px;
 }
 .site-hero__title {
-  padding-top: 170px;
+  padding-top: 250px;
   margin: 0;
   margin-bottom: 24px;
   font-weight: 100;
@@ -159,6 +179,8 @@ header .nav-link:hover {
 
 .easybank {
   background-color: var(--easybank-bg);
+  position: relative;
+  z-index: 990;
 }
 
 .easybank__container {
@@ -235,6 +257,8 @@ header .nav-link:hover {
 }
 .card-body {
   padding: 24px;
+  display: flex;
+  flex-direction: column;
 }
 .card-extra--text {
   margin: 0;
@@ -253,11 +277,23 @@ header .nav-link:hover {
   letter-spacing: -0.285714px;
 }
 .card-text {
-  margin: 0;
   font-size: 13px;
   line-height: 18px;
   letter-spacing: -0.203125px;
   color: var(--grey);
+}
+.card-link {
+  margin: 0;
+  margin-bottom: 8px;
+  font-weight: 100;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: -0.285714px;
+  text-decoration: none;
+  color: var(--grey);
+}
+.card-link:hover {
+  color: var(--green);
 }
 /* FOOTER */
 
@@ -338,7 +374,7 @@ footer .btn-linear {
     display: block;
     content: '';
     width: 100%;
-    height: 100vh;
+    height: 50vh;
     position: absolute;
     left: 0;
     right: 0;
@@ -353,7 +389,10 @@ footer .btn-linear {
   }
 
   header .navbar-nav {
-    margin-top: 24px;
+    position: absolute;
+    top: 98px;
+    left: 24px;
+    right: 24px;
     padding: 32px;
     border-radius: 4px;
     align-items: center;
@@ -364,14 +403,31 @@ footer .btn-linear {
     margin-right: 0;
   }
   header .nav-link {
+    padding: 0 !important;
+    padding-bottom: 5px !important;
     font-size: 18px;
     line-height: 21px;
     letter-spacing: -0.138462px;
     color: var(--dark);
   }
+  header .nav-item:not(:last-child) {
+    margin-bottom: 19px;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+  .navbar-brand {
+    margin-right: 0;
+  }
+  .navbar-nav {
+    margin: auto;
+  }
 }
 @media only screen and (max-width: 768px) {
+  main {
+    text-align: center;
+  }
   .site-hero__container::after {
+    margin: 0 auto;
     display: block;
     content: '';
     background: url(../images/hero-bg-mobile.svg);
@@ -381,7 +437,77 @@ footer .btn-linear {
     height: 424px;
     position: absolute;
     top: 0;
+    right: 0;
   }
+  .site-hero__container::before {
+    display: none;
+  }
+  .site-hero__title {
+    padding-top: 402px;
+    font-size: 40px;
+    line-height: 47px;
+    letter-spacing: -0.714286px;
+  }
+  .site-hero__text {
+    font-size: 15px;
+    line-height: 25px;
+    letter-spacing: -0.234375px;
+  }
+  .site-hero .btn {
+    margin-bottom: 88px;
+  }
+  .easybank__container {
+    padding: 64px 24px;
+  }
+  .easybank__title {
+    margin-bottom: 14px;
+    font-size: 32px;
+    line-height: 38px;
+    letter-spacing: -0.571429px;
+  }
+  .easybank__text {
+    margin-bottom: 56px;
+    font-size: 15px;
+    line-height: 25px;
+    letter-spacing: -0.234375px;
+  }
+  .easybank .col-md-3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .easybank .col-md-3:not(:last-child) {
+    margin-bottom: 32px;
+  }
+  .easybank .col-md-3::before {
+    margin-bottom: 24px;
+  }
+  .easybank__col--title {
+    margin-bottom: 16px;
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: -0.357143px;
+  }
+  .easybank__col--text {
+    font-size: 15px;
+    line-height: 25px;
+    letter-spacing: -0.234375px;
+  }
+
+  .articles {
+    padding: 88px 24px;
+    text-align: start;
+  }
+  .articles .col-md-3:not(:last-child) {
+    margin-bottom: 24px;
+  }
+  .articles__title {
+    margin-bottom: 31px;
+    font-size: 32px;
+    line-height: 38px;
+    letter-spacing: -0.571429px;
+  }
+
   header .navbar-brand {
     margin-right: 0;
   }
@@ -406,13 +532,5 @@ footer .btn-linear {
   footer .navbar-brand {
     margin-bottom: 32px;
     text-align: center;
-  }
-}
-@media only screen and (min-width: 768px) and (max-width: 992px) {
-  .navbar-brand {
-    margin-right: 0;
-  }
-  .navbar-nav {
-    margin: auto;
   }
 }
