@@ -215,6 +215,50 @@ header .nav-link:hover {
 .open-api::before {
   background: url(../images/open-api.png), var(--linear-bg);
 }
+
+/* ARTICLES */
+.articles {
+  padding: 80px 24px;
+  background-color: var(--hero-bg);
+}
+.articles__title {
+  margin: 0;
+  margin-bottom: 40px;
+  font-weight: 100;
+  font-size: 40px;
+  line-height: 64px;
+  letter-spacing: -0.714286px;
+}
+.card {
+  border: none;
+  border-radius: 5px;
+}
+.card-body {
+  padding: 24px;
+}
+.card-extra--text {
+  margin: 0;
+  margin-bottom: 8px;
+  font-size: 10px;
+  line-height: 18px;
+  letter-spacing: -0.15625px;
+  color: var(--grey);
+}
+.card-title {
+  margin: 0;
+  margin-bottom: 8px;
+  font-weight: 100;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: -0.285714px;
+}
+.card-text {
+  margin: 0;
+  font-size: 13px;
+  line-height: 18px;
+  letter-spacing: -0.203125px;
+  color: var(--grey);
+}
 /* FOOTER */
 
 .site-footer {
